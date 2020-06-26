@@ -1,12 +1,17 @@
-import React from "react";
-
+import React, { useState } from "react";
+import TimeNow from "./TimeNow";
 function App() {
-  let time = new Date().toLocaleTimeString();
-  console.log(time);
+  const [time, setTime] = useState(TimeNow);
+
+  function updateTime() {
+    setTime(TimeNow);
+  }
+
+  setInterval(updateTime, 1000);
+
   return (
     <div className="container">
-      <h1>TIME</h1>
-      <button>Get Time</button>
+      <h1 style={{ fontSize: "45px" }}>{time}</h1>
     </div>
   );
 }
